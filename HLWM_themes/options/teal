@@ -1,0 +1,43 @@
+
+wpaper() {
+    DIR="$HOME/.config/herbstluftwm/wallpaper/teal"
+    wpaper="$(ls $DIR/*.jpg | shuf -n1)"
+    cat $wpaper > $HOME/.config/herbstluftwm/HLWM_themes/wallpaper.jpg
+    xwallpaper --zoom $HOME/.config/herbstluftwm/HLWM_themes/wallpaper.jpg
+}
+wpaper
+
+hc attr theme.tiling.reset 1
+hc attr theme.floating.reset 1
+hc set frame_border_active_color '#222222'
+hc set frame_border_normal_color '#101010'
+hc set frame_bg_normal_color '#565656'
+hc set frame_bg_active_color '#345F0C'
+hc set frame_border_width 1
+hc set always_show_frame 0
+hc set frame_bg_transparent 1
+hc set frame_transparent_width 0
+hc set frame_gap 0
+
+hc attr theme.active.color '#008080'
+hc attr theme.active.border_width 5
+hc attr theme.active.inner_width 1
+
+hc attr theme.normal.color '#242424'
+hc attr theme.normal.border_width 5
+hc attr theme.normal.inner_width 1
+
+hc attr theme.urgent.color orange
+hc attr theme.inner_color '#ffffff'
+
+hc attr theme.floating.border_width 5
+hc attr theme.floating.outer_width 4
+hc attr theme.floating.outer_color '#aa3535'
+
+hc set window_gap 10
+hc set frame_padding 0
+hc set smart_window_surroundings true
+hc set smart_frame_surroundings true
+hc set mouse_recenter_gap 0
+
+

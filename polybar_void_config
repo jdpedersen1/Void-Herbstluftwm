@@ -36,7 +36,7 @@ font-8                              = Font Awesome:style=Solid:pixelsize=10;1
 
 modules-left                        = logo ewmh line-endl xwindow
 modules-center                      = 
-modules-right                       = line-end pacman-updates ytube date updicon
+modules-right                       = line-end mail ytube date updicon
 
 tray-position                       = right
 tray-padding                        = 7
@@ -102,15 +102,13 @@ background                          = #1e1e1e
 background-next                     = #1e1e1e
 separator                           = #000000
 
-type                                = internal/date
+type                                = custom/script
 interval                            = 5
-date                                = " %Y-%m-%d"
-date-alt                            = " %Y-%m-%d"
-time                                = %I:%M
-time-alt                            = %H:%M:%S
-label                               = "  %date% ( %time% ) "
+exec                                = date +" %Y-%m-%d (%I:%M)"
+label                               = "  %output% "
 label-background                    = #1e1e1e
 label-foreground                    = ${colors.foreground-alt}
+click-left                          = scratch Todo
 
 [module/pulseaudio]
 inherit                             = powerline-templates/right-to-left-item-with-separator
@@ -133,7 +131,7 @@ background-next                     = #1e1e1e
 separator                           = #000000
 type                                = custom/script
 exec                                = mailcheck.sh
-interval                            = 300.0
+interval                            = 3600
 label                               = " %output% "
 label-foreground                    = ${colors.foreground}
 label-background                    = #2a2a2a
@@ -238,8 +236,9 @@ click-left = notify-send --expire-time=9000 "$(sudo xbps-install -Sun | awk {'pr
 
 [module/updicon]
 type = custom/script
-exec = updicon.sh
-interval = 20
+exec = ~/.config/herbstluftwm/updicon.sh
+tail = true
+#interval = 10
 
 [module/logo]
 inherit            = powerline-templates/left-to-right-item

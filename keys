@@ -28,10 +28,10 @@ hc keybind $Mod-Control-s spawn playerctl stop
 # #--------#
 hc keybind $Mod-w spawn bgd
 hc keybind $Mod-Control-y spawn ~/.local/scripts/ytsubs.sh
-hc keybind $Mod-Shift-t spawn alacritty -e ./.local/scripts/schedule.sh
+hc keybind $Mod-Shift-t spawn scratch Todo
 hc keybind $Mod-Shift-w spawn alacritty -t windows -e windows.sh
 hc keybind $Mod-a spawn alacritty
-
+hc keybind $Mod-c spawn conktoggle.sh
 # run launchers #
 #---------------#
 #hc keybind $Mod-Control-f spawn dmenu_run -p Launch: -fn Hermit:size=10 -l 10 -g 7 -nb '#222222' -sb '#007687' -sf '#222222' -nf '#b8b8b8'
@@ -57,7 +57,7 @@ hc keybind $Mod-Return spawn scratch scratchpad
 hc keybind $Mod-Control-f spawn scratch FM
 hc keybind $Mod-q spawn scratch2 qutebrowser 
 hc keybind $Mod-Control-Return spawn scratchpad
-hc keybind $Mod-m spawn scratch2 Mail
+hc keybind $Mod-m spawn scratch Mail
 hc keybind $Mod-t spawn scratch Music
 hc keybind $Mod-Control-c spawn scratch2 Calc
 hc keybind $Mod-y spawn scpad
@@ -129,7 +129,6 @@ hc keybind $Mod-space                                                           
 hc keybind $Mod-BackSpace   cycle_monitor
 hc keybind $Mod-Tab         cycle_all +1
 hc keybind $Mod-Shift-Tab   cycle_all -1
-hc keybind $Mod-c cycle
 hc keybind $Mod-i jumpto urgent
 
 # MOUSE #

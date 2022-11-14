@@ -17,7 +17,7 @@ hc rule title~'FM' floating=on floatplacement=center floating_geometry=1000x800
 hc rule class~'qutebrowser' floating=on floatplacement=center floating_geometry=1800x1000
 hc rule title~'Mail' floating=on floatplacement=center floating_geometry=1500x800
 hc rule title~'Music' floating=on floatplacement=center floating_geometry=1200x800
-hc rule title~'Calc' floating=on floatplacement=center floating_geometry=1720x650
+hc rule title~'Todo' floating=on floatplacement=center floating_geometry=1000x650
 
 hc rule focus=on # normally focus new clients
 hc rule floatplacement=center

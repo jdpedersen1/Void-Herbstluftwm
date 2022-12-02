@@ -1,10 +1,11 @@
 [settings]
 
-include-file = $HOME/.local/programs/powerline-for-polybar/powerline-for-polybar.config
+include-file = $HOME/.config/herbstluftwm/polybar_themes/powerline-for-polybar.config
 include-file = $HOME/.config/herbstluftwm/polybar_themes/theme.ini
 
 
 [bar/mainbar-herbst]
+monitor                             = ${env:MONITOR}
 offset-y                            = 0
 width                               = 100%
 height                              = 18
@@ -238,7 +239,7 @@ click-left = notify-send --expire-time=9000 "$(sudo xbps-install -Sun | awk {'pr
 type = custom/script
 exec = ~/.config/herbstluftwm/updicon.sh
 tail = true
-#interval = 10
+interval = 10
 
 [module/logo]
 inherit            = powerline-templates/left-to-right-item

@@ -73,6 +73,7 @@ hc keybind $Mod-Right focus right
 hc keybind $Mod-Shift-Down  shift down
 hc keybind $Mod-Shift-Up    shift up
 hc keybind $Mod-Shift-Right shift right
+hc keybind $Mod-Shift-Left  shift left
 
 # splitting frames #
 #------------------#

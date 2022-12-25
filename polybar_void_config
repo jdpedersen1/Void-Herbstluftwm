@@ -37,7 +37,7 @@ font-8                              = Font Awesome:style=Solid:pixelsize=10;1
 
 modules-left                        = logo ewmh line-endl xwindow
 modules-center                      = 
-modules-right                       = line-end mail ytube date updicon
+modules-right                       = line-end batt mail ytube date updicon
 
 tray-position                       = right
 tray-padding                        = 7

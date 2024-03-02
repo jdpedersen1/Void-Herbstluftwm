@@ -12,7 +12,7 @@ hc rule title~'themesel.sh' floating=on floatplacement=center floating_geometry=
 
 # SCRATCHPADS #
 #-------------#
-hc rule title~'scratchpad' floating=on floatplacement=center floating_geometry=1000x500
+hc rule title~'scratchpad' floating=on floatplacement=center floating_geometry=1300x550
 hc rule title~'FM' floating=on floatplacement=center floating_geometry=1000x800
 hc rule class~'qutebrowser' floating=on floatplacement=center floating_geometry=1800x1000
 hc rule title~'Mail' floating=on floatplacement=center floating_geometry=1500x800
@@ -26,7 +26,7 @@ hc rule floatplacement=center
 # give focus to most common terminals
 hc rule windowtype~'_NET_WM_WINDOW_TYPE_(DIALOG|UTILITY|SPLASH)' floating=on floatplacement=center
 hc rule windowtype='_NET_WM_WINDOW_TYPE_DIALOG' focus=on floatplacement=smart
-hc rule windowtype~'_NET_WM_WINDOW_TYPE_(NOTIFICATION|DOCK|DESKTOP)' manage=off
+hc rule windowtype~'_NET_WM_WINDOW_TYPE_(NOTIFICATION|DOCK|DESKTOP)' manage=on
 
 hc set tree_style '╾│ ├└╼─┐'
 

@@ -1,11 +1,11 @@
 
-wallpaper() {
-    DIR="$HOME/Images/wallpapers/City"
+wpaper() {
+    DIR="$HOME/.config/herbstluftwm/wallpaper/purple"
     wpaper="$(ls $DIR/*.jpg | shuf -n1)"
     cat $wpaper > $HOME/.config/herbstluftwm/HLWM_themes/wallpaper.jpg
     xwallpaper --zoom $HOME/.config/herbstluftwm/HLWM_themes/wallpaper.jpg
 }
-wallpaper
+wpaper
 
 hc attr theme.tiling.reset 1
 hc attr theme.floating.reset 1

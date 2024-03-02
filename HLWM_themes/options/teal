@@ -32,7 +32,7 @@ hc attr theme.inner_color '#ffffff'
 
 hc attr theme.floating.border_width 5
 hc attr theme.floating.outer_width 4
-hc attr theme.floating.outer_color '#aa3535'
+hc attr theme.floating.outer_color '#66408c'
 
 hc set window_gap 10
 hc set frame_padding 0

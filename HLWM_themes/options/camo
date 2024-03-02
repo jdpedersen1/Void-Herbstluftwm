@@ -1,11 +1,10 @@
-
-wallpaper() {
-    DIR="$HOME/Images/wallpapers/City"
+wpaper() {
+    DIR="$HOME/.config/herbstluftwm/wallpaper/camo"
     wpaper="$(ls $DIR/*.jpg | shuf -n1)"
     cat $wpaper > $HOME/.config/herbstluftwm/HLWM_themes/wallpaper.jpg
     xwallpaper --zoom $HOME/.config/herbstluftwm/HLWM_themes/wallpaper.jpg
 }
-wallpaper
+wpaper
 
 hc attr theme.tiling.reset 1
 hc attr theme.floating.reset 1
@@ -19,7 +18,7 @@ hc set frame_bg_transparent 1
 hc set frame_transparent_width 0
 hc set frame_gap 0
 
-hc attr theme.active.color '#875faf'
+hc attr theme.active.color '#284a37'
 hc attr theme.active.border_width 5
 hc attr theme.active.inner_width 1
 
@@ -32,7 +31,7 @@ hc attr theme.inner_color '#ffffff'
 
 hc attr theme.floating.border_width 5
 hc attr theme.floating.outer_width 4
-hc attr theme.floating.outer_color '#03597e'
+hc attr theme.floating.outer_color '#657465'
 
 hc set window_gap 10
 hc set frame_padding 0

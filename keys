@@ -7,10 +7,10 @@ hc keyunbind --all
 
 # System controls #
 #-----------------#
-hc keybind $Mod-Shift-c spawn alacritty -t logout -e herbst-logout.sh
+hc keybind $Mod-Shift-c spawn alacritty -t logout -e $HOME/.local/scripts/dmenu/herbst-logout.sh
 hc keybind $Mod-Control-r reload
 hc keybind $Mod-Shift-q close
-hc keybind $Mod-Shift-Return spawn "${TERMINAL:-alacritty}" # 
+hc keybind $Mod-Shift-Return spawn alacritty 
 
 # multimedia #
 #------------#
@@ -26,26 +26,29 @@ hc keybind $Mod-Control-s spawn playerctl stop
 
 # programs #
 # #--------#
-hc keybind $Mod-w spawn bgd
+hc keybind $Mod-w spawn $HOME/.local/scripts/bgd
 hc keybind $Mod-Control-y spawn ~/.local/scripts/ytsubs.sh
-hc keybind $Mod-Shift-t spawn scratch Todo
-hc keybind $Mod-Shift-w spawn alacritty -t windows -e windows.sh
+hc keybind $Mod-Shift-t spawn $HOME/.local/scripts/scratch Todo
+hc keybind $Mod-Shift-w spawn alacritty -t windows -e $HOME/.local/scripts/windows.sh
 hc keybind $Mod-a spawn alacritty
-hc keybind $Mod-c spawn conktoggle.sh
+hc keybind $Mod-c spawn $HOME/.local/scripts/conktoggle.sh
+
 # run launchers #
 #---------------#
 #hc keybind $Mod-Control-f spawn dmenu_run -p Launch: -fn Hermit:size=10 -l 10 -g 7 -nb '#222222' -sb '#007687' -sf '#222222' -nf '#b8b8b8'
 hc keybind $Mod-Shift-r spawn rofi -show drun
 hc keybind $Mod-Control-e spawn rofi -show emoji
-hc keybind $Mod-Shift-v spawn alacritty -t vmach.sh -e vmach.sh
-hc keybind $Mod-Shift-i spawn alacritty -t vsp2 -e vsp2
-hc keybind $Mod-Shift-d spawn alacritty -t launch.sh -e launch.sh 
-hc keybind $Mod-Shift-e spawn alacritty -t configs -e edit_configs.sh
-hc keybind $Mod-Control-t spawn alacritty -t themesel.sh -e themesel.sh
+hc keybind $Mod-Shift-v spawn alacritty -t vmach.sh -e $HOME/.local/scripts/vmach.sh
+hc keybind $Mod-Shift-i spawn alacritty -t vsp2 -e $HOME/.local/scripts/vsp2
+hc keybind $Mod-Shift-d spawn alacritty -t launch.sh -e $HOME/.local/scripts/launch.sh 
+hc keybind $Mod-Shift-e spawn alacritty -t configs -e $HOME/.local/scripts/dmenu/edit_configs.sh
+hc keybind $Mod-Control-t spawn alacritty -t themesel.sh -e $HOME/.local/scripts/themesel.sh
+hc keybind $Mod-Control-u chain , split right 0.6 , focus right , spawn alacritty
+hc keybind $Mod-Control-i chain , move_index +1 , use_index +1
 
 # browsers #
 #----------#
-hc keybind $Mod-Shift-b spawn brave-browser-stable
+hc keybind $Mod-Shift-b spawn brave-browser-nightly
 hc keybind $Mod-Shift-a spawn firefox
 hc keybind $Mod-Shift-n spawn nyxt
 
@@ -53,14 +56,14 @@ hc keybind Print spawn flameshot gui
 
 # scratchpads #
 #-------------#
-hc keybind $Mod-Return spawn scratch scratchpad 
-hc keybind $Mod-Control-f spawn scratch FM
-hc keybind $Mod-q spawn scratch2 qutebrowser 
-hc keybind $Mod-Control-Return spawn scratchpad
-hc keybind $Mod-m spawn scratch Mail
-hc keybind $Mod-t spawn scratch Music
-hc keybind $Mod-Control-c spawn scratch2 Calc
-hc keybind $Mod-y spawn scpad
+hc keybind $Mod-Return spawn $HOME/.local/scripts/scratchpad 
+hc keybind $Mod-Control-f spawn $HOME/.local/scripts/scratch FM
+hc keybind $Mod-q spawn $HOME/.local/scripts/scratch2 qutebrowser 
+hc keybind $Mod-Control-Return chain , spawn $HOME/.local/scripts/scratchpad , spawn $HOME/.local/scripts/scratch scratchpad
+hc keybind $Mod-m spawn $HOME/.local/scripts/scratch Mail
+hc keybind $Mod-t spawn $HOME/.local/scripts/scratch Music
+hc keybind $Mod-Control-c spawn $HOME/.local/scripts/scratch2 Calc
+hc keybind $Mod-y spawn $HOME/.local/scripts/scpad
 
 # focusing client #
 #-----------------#s
@@ -100,7 +103,7 @@ tag_keys=( {1..9} 0 )
 hc rename default "${tag_names[0]}" || true
 for i in "${!tag_names[@]}" ; do
     hc add "${tag_names[$i]}"
-    hc set_layout horizontal
+    hc set_layout horizontal 
     hc set default_frame_layout 1
     key="${tag_keys[$i]}"
     if ! [ -z "$key" ] ; then

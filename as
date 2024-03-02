@@ -4,7 +4,7 @@ hc() {
     herbstclient "$@"
 }
 
-hc emit_hook reload
+HC emit_hook reload
 
 # AUTOSTART #
 #-----------#
@@ -15,8 +15,6 @@ xfce4-power-manager &
 mpd --no-daemon "$HOME"/.config/mpd/mpd.conf &
 mpDris2 -c "$HOME"/.config/mpDris2/mpDris2.conf &
 ./panel.sh
-pipewire-pulse
-wireplumber
 #polybar --config =$HOME/.config/herbstluftwm/polybar_void_config &
 /usr/bin/gnome-keyring-daemon --start --components=secrets
 batticon(){

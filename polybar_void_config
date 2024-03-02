@@ -1,11 +1,10 @@
 [settings]
 
-include-file = $HOME/.config/herbstluftwm/polybar_themes/powerline-for-polybar.config
+include-file = $HOME/.config/herbstluftwm/polybar_themes/power-for-polybar.config
 include-file = $HOME/.config/herbstluftwm/polybar_themes/theme.ini
 
 
 [bar/mainbar-herbst]
-monitor                             = ${env:MONITOR}
 offset-y                            = 0
 width                               = 100%
 height                              = 18
@@ -35,9 +34,9 @@ font-6                              = Font Awesome:style=Regular:pixelsize=10;1
 font-7                              = FantasqueSansMono:style=Bold:size=12
 font-8                              = Font Awesome:style=Solid:pixelsize=10;1
 
-modules-left                        = logo ewmh line-endl xwindow
-modules-center                      = 
-modules-right                       = line-end batt mail ytube date updicon
+modules-left                        = logo ewmh line-endl 
+modules-center                      = xwindow
+modules-right                       = line-end batt ytube pulseaudio date updicon
 
 tray-position                       = right
 tray-padding                        = 7
@@ -50,11 +49,11 @@ cursor-scroll                       = ns-resize
 [module/xwindow]
 type                                = internal/xwindow
 label                               = "%title:0:30:...%"
-label-foreground                    = #5f875f
+label-foreground                    = #b8b8b8
 label-background                    = ${colors.background}
 format-prefix                       = "  "
 format-prefix-background            = ${colors.background}
-format-prefix-foreground            = ${colors.foreground-alt5}
+format-prefix-foreground            = ${colors.foreground-alt6}
 
 [module/ytube]
 inherit                             = powerline-templates/right-to-left-item-with-separator
@@ -62,7 +61,7 @@ background                          = ${colors.foreground-alt4}
 background-next                     = #474747
 separator                           = #000000
 type                                = custom/script
-exec                                = ytsubs.sh
+exec                                = /home/jake/.local/scripts/ytsubs.sh
 interval                            = 3.0
 label-background                    = ${colors.foreground-alt4}
 label-foreground                    = #262626
@@ -118,12 +117,12 @@ background-next                     = #1e1e1e
 separator                           = #000000
 type                                = internal/pulseaudio
 sink                                = alsa_output.pci-0000_12_00.3.analog-stereo
-format-volume                       = "   <label-volume> "
-label-volume-foreground             = ${colors.foreground}
-label-volume-background             = #2a2a2a
-label-muted                         = " MUTE "
-label-muted-foreground              = ${colors.foreground-alt3}
-label-muted-background              = #2a2a2a
+format-volume                       = "  <label-volume> "
+format-volume-foreground            = ${colors.foreground}
+format-volume-background            = #2a2a2a
+format-muted                        = "<label-volume> "
+format-muted-foreground             = ${colors.foreground}
+format-muted-background             = #2a2a2a
 
 [module/mail]
 inherit                             = powerline-templates/right-to-left-item-with-separator
@@ -144,7 +143,7 @@ background = #474747
 background-next = #2a2a2a
 separator = #000000
 type = custom/script
-exec = battery
+exec = /home/jake/.local/scripts/batt.sh
 interval = 3.0
 label = " %output% "
 label-background = #474747
@@ -237,7 +236,7 @@ click-left = notify-send --expire-time=9000 "$(sudo xbps-install -Sun | awk {'pr
 
 [module/updicon]
 type = custom/script
-exec = ~/.config/herbstluftwm/updicon.sh
+exec = /home/jake/.config/herbstluftwm/updicon.sh
 tail = true
 interval = 10
 

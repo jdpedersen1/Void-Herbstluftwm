@@ -1,0 +1,106 @@
+## Mod key set to alt, use Mod4 to use super key
+Mod=Mod1
+
+## Remove all existing keybindings
+hc keyunbind --all
+
+## System Controls
+hc keybind $Mod-Shift-c quit
+hc keybind $Mod-Shift-r reload
+hc keybind $Mod-Shift-q close
+
+## Programs
+# Terminals
+hc keybind $Mod-Shift-Return spawn alacritty
+hc keybind $Mod-Shift-k spawn kitty
+
+
+# Scratchpads
+hc keybind $Mod-Return spawn $HOME/.local/scripts/scratch scratchpad
+hc keybind $Mod-Control-Return spawn $HOME/.local/scripts/scratch notepad
+
+# Menu
+#hc keybind $Mod-Shift-d spawn dmenu_run
+hc keybind $Mod-Shift-d spawn $HOME/.config/herbstluftwm/herbstScripts/menu menu
+hc keybind $Mod-Shift-i spawn $HOME/.config/herbstluftwm/herbstScripts/menu srcpkgs
+hc keybind $Mod-Shift-v spawn $HOME/.config/herbstluftwm/herbstScripts/menu vm
+
+
+# Browsers
+hc keybind $Mod-Shift-a spawn firefox
+hc keybind $Mod-Shift-n spawn nyxt
+
+## Multimedia
+# Backlight
+hc keybind XF86MonBrightnessUp spawn xbacklight -inc 10
+hc keybind XF86MonBrightnessDown spawn xbacklight -dec 10
+
+# Audio
+hc keybind XF86AudioRaiseVolume spawn pactl set-sink-volume 0 +5%
+hc keybind XF86AudioLowerVolume spawn pactl set-sink-volume 0 -5%
+hc keybind XF86AudioMute spawn pactl set-sink-mute @DEFAULT_SINK@ toggle
+hc keybind XF86AudioPlay spawn playerctl play-pause 
+hc keybind $Mod-Control-s spawn playerctl stop
+hc keybind $Mod-Shift-Control-left spawn playerctl previous
+hc keybind $Mod-Shift-Control-right spawn playerctl next
+
+# basic movement in tiling and floating mode
+# focusing clients
+hc keybind $Mod-Left  focus left
+hc keybind $Mod-Down  focus down
+hc keybind $Mod-Up    focus up
+hc keybind $Mod-Right focus right
+
+# moving clients in tiling and floating mode
+hc keybind $Mod-Shift-Left  shift left
+hc keybind $Mod-Shift-Down  shift down
+hc keybind $Mod-Shift-Up    shift up
+hc keybind $Mod-Shift-Right shift right
+
+# splitting frames
+# create an empty frame at the specified direction
+hc keybind $Mod-u       split   bottom  0.5
+hc keybind $Mod-o       split   right   0.5
+# let the current frame explode into subframes
+hc keybind $Mod-Control-space split explode
+
+# resizing frames and floating clients
+resizestep=0.02
+hc keybind $Mod-Control-Left    resize left +$resizestep
+hc keybind $Mod-Control-Down    resize down +$resizestep
+hc keybind $Mod-Control-Up      resize up +$resizestep
+hc keybind $Mod-Control-Right   resize right +$resizestep
+
+# cycle through tags
+hc keybind $Mod-period use_index +1 --skip-visible
+hc keybind $Mod-comma  use_index -1 --skip-visible
+
+# layouting
+hc keybind $Mod-r remove
+hc keybind $Mod-s floating toggle
+hc keybind $Mod-f fullscreen toggle
+hc keybind $Mod-Shift-f set_attr clients.focus.floating toggle
+hc keybind $Mod-Shift-m set_attr clients.focus.minimized true
+hc keybind $Mod-Control-m jumpto last-minimized
+hc keybind $Mod-p pseudotile toggle
+# The following cycles through the available layouts within a frame, but skips
+# layouts, if the layout change wouldn't affect the actual window positions.
+# I.e. if there are two windows within a frame, the grid layout is skipped.
+hc keybind $Mod-space                                                           \
+            or , and . compare tags.focus.curframe_wcount = 2                   \
+                     . cycle_layout +1 vertical horizontal max vertical grid    \
+               , cycle_layout +1
+
+# mouse
+hc mouseunbind --all
+hc mousebind $Mod-Button1 move
+hc mousebind $Mod-Button2 zoom
+hc mousebind $Mod-Button3 resize
+
+# focus
+hc keybind $Mod-Tab         cycle_all +1
+hc keybind $Mod-Shift-Tab   cycle_all -1
+hc keybind $Mod-c cycle
+hc keybind $Mod-i jumpto urgent
+
+hc unlock

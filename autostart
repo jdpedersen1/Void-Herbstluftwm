@@ -1,4 +1,6 @@
-#!/bin/bash
+#!/usr/bin/env bash
+
+# this is a simple config for herbstluftwm
 
 hc() {
     herbstclient "$@"
@@ -6,64 +8,37 @@ hc() {
 
 hc emit_hook reload
 
-# AUTOSTART #
-#-----------#
-
+### Autostart
 nm-applet &
-picom --experimental-backends &
+compfy --daemon
 xfce4-power-manager &
 mpd --no-daemon "$HOME"/.config/mpd/mpd.conf &
 mpDris2 -c "$HOME"/.config/mpDris2/mpDris2.conf &
-./panel.sh
-pipewire-pulse
-wireplumber
-#polybar --config =$HOME/.config/herbstluftwm/polybar_void_config &
-/usr/bin/gnome-keyring-daemon --start --components=secrets
-batticon(){
-    batt="$(pidof cbatticon)"
-    if [[ "$batt" -lt 1 ]];
-    then 
-        cbatticon -i notification /sys/class/power_supply/BAT0 &
-    else
-        pkill cbatticon;
-        cbatticon -i notification /sys/class/power_supply/BAT0 &
-    fi
-}
-volicon(){
-    vol="$(pidof volumeicon)"
-    if [[ "$vol" -lt 1 ]];
-    then 
-        volumeicon &
-    else
-        pkill volumeicon;
-        volumeicon &
-    fi
-}
-#volicon
-#batticon
+blueman-applet &
+$HOME/.config/herbstluftwm/panel.sh &
 
-#$HOME/.config/herbstluftwm/xmobar && herbstclient use_index 1
-#sleep 4 && trayer --edge top --align right --widthtype request --padding 3 --iconspacing 5 --SetDockType true --SetPartialStrut true --expand true --monitor 1 --transparent true --alpha 0 --tint 0x181818 --height 20 &
-
-# KEYBINDINGS #
-#-------------#
-. "$HOME"/.config/herbstluftwm/keys
-
-# THEME #
-#-------#
-. "$HOME"/.config/herbstluftwm/HLWM_themes/theme
-
-# RULES #
-#-------#
+# Keybindings
+. "$HOME"/.config/herbstluftwm/keyBinds 
+# Theme
+. "$HOME"/.config/herbstluftwm/theme
+# Rules
 . "$HOME"/.config/herbstluftwm/winRules
 
-# FIND THE PANEL #
-#----------------#
-panel=~/.config/herbstluftwm/panel.sh
-[ -x "$panel" ] || panel=/etc/xdg/herbstluftwm/panel.sh
-for monitor in $(hc list_monitors | cut -d: -f1) ; do
-    # start it on each monitor
-    "$panel" "$monitor" &
-done
-hc split vertical 0.6; hc remove
 
+# tags
+tag_names=( {1..9} )
+tag_keys=( {1..9} 0 )
+
+hc rename default "${tag_names[0]}" || true
+for i in "${!tag_names[@]}" ; do
+    hc add "${tag_names[$i]}"
+    key="${tag_keys[$i]}"
+    if [ -n "$key" ] ; then
+        hc keybind "$Mod-$key" use_index "$i"
+        hc keybind "$Mod-Shift-$key" move_index "$i"
+    fi
+done
+hc set tree_style '╾│ ├└╼─┐'
+
+
+hc split vertical 0.6; hc remove

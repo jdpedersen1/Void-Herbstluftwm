@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+
+# Created By: Jake@Linux
+# Created On: Fri 04 Oct 2024 09:32:54 AM CDT
+#Project: 
+
+pkgs="$(ls $HOME/.local/pkgs/void-packages/srcpkgs/)"
+
+
+case "$1" in
+    menu)
+        herbstclient split left 0.15; herbstclient focus left; rofi -show run; herbstclient remove
+        ;;
+    srcpkgs)
+        herbstclient split left 0.15; herbstclient focus left; $HOME/.local/scripts/vsp2.sh; herbstclient remove
+        ;;
+    vm)
+        herbstclient split left 0.15; herbstclient focus left; $HOME/.local/instaVM/vmach.sh; herbstclient remove
+        ;;
+esac
+        

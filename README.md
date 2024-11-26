@@ -40,6 +40,7 @@ This configuration leverages the following tools to enhance usability and aesthe
 - **[Rofi](https://github.com/davatorium/rofi)**: A versatile application launcher and dmenu replacement.
 - **[Vim/Neovim](https://neovim.io/)**: My preferred text editors for editing configuration files.
 - **[Polybar](https://polybar.github.io/)**: A customizable status bar for system information and quick actions.
+- **[Compfy](https://github.com/allusive-dev/compfy)**: A compositor fo X11 with animations similar to picom ( no longer actively maintained )
 
 ---
 

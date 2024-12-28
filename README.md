@@ -1,5 +1,7 @@
 # Herbstluftwm Configuration
 
+![](screenshot.png)
+
 Welcome to my Herbstluftwm configuration repository! This setup is designed to provide an efficient, minimalist tiling window manager experience, customized with themes, scripts, and keybindings to suit my workflow.  
 
 ![my setup in action](assets/video.mkv)

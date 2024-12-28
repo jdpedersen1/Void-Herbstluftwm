@@ -4,7 +4,7 @@
 # Created On: Fri 04 Oct 2024 09:32:54 AM CDT
 #Project: 
 
-pkgs="$(ls $HOME/.local/pkgs/void-packages/srcpkgs/)"
+#pkgs="$(ls $HOME/.local/pkgs/void-packages/srcpkgs/)"
 
 
 case "$1" in
@@ -15,7 +15,9 @@ case "$1" in
         herbstclient split left 0.15; herbstclient focus left; $HOME/.local/scripts/vsp2.sh; herbstclient remove
         ;;
     vm)
-        herbstclient split left 0.15; herbstclient focus left; $HOME/.local/instaVM/vmach.sh; herbstclient remove
+        herbstclient use_index 8 && $HOME/.local/instaVM/vmach.sh
         ;;
+    theme)
+        herbstclient split left 0.15; herbstclient focus left; $HOME/.config/herbstluftwm
 esac
         

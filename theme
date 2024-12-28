@@ -1,9 +1,16 @@
 source "$HOME"/.config/bash/env_vars
 
+file=/home/jake/.config/polybar/polybar_6/config
+
 if [[ "$theme" == "dark" ]]; then
     xwallpaper --zoom "$HOME"/Images/wallpapers/lowPoly/darkMtns.jpg
+    sed -i 's/\b\(dark\|sepia\|light\)\b/dark/g' $file
 elif [[ "$theme" == "light" ]]; then
     xwallpaper --zoom "$HOME"/Images/wallpapers/City/blurryCity.jpg
+    sed -i 's/\b\(dark\|sepia\|light\)\b/light/g' $file
+elif [[ "$theme" == "sepia" ]]; then
+    xwallpaper --zoom "$HOME"/Images/wallpapers/Nature/darkHills.jpg
+    sed -i 's/\b\(dark\|sepia\|light\)\b/sepia/g' $file
 fi
 
 

@@ -18,9 +18,12 @@ hc keybind $Mod-Shift-k spawn kitty
 # Scratchpads
 hc keybind $Mod-Return spawn $HOME/.local/scripts/scratch scratchpad
 hc keybind $Mod-Control-Return spawn $HOME/.local/scripts/scratch notepad
+hc keybind $Mod-Control-Shift-Return spawn $HOME/.local/scripts/scratch notes
+hc keybind $Mod-Control-Shift-n spawn $HOME/.local/scripts/scratch news
 
 # Menu
 #hc keybind $Mod-Shift-d spawn dmenu_run
+hc keybind $Mod-d spawn $HOME/.config/launchers/launchers/type-3/launcher.sh
 hc keybind $Mod-Shift-d spawn $HOME/.config/herbstluftwm/herbstScripts/menu menu
 hc keybind $Mod-Shift-i spawn $HOME/.config/herbstluftwm/herbstScripts/menu srcpkgs
 hc keybind $Mod-Shift-v spawn $HOME/.config/herbstluftwm/herbstScripts/menu vm
@@ -29,6 +32,7 @@ hc keybind $Mod-Shift-v spawn $HOME/.config/herbstluftwm/herbstScripts/menu vm
 # Browsers
 hc keybind $Mod-Shift-a spawn firefox
 hc keybind $Mod-Shift-n spawn nyxt
+hc keybind $Mod-Shift-b spawn brave-browser-stable
 
 ## Multimedia
 # Backlight

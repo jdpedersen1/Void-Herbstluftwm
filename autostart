@@ -23,7 +23,8 @@ $HOME/.config/herbstluftwm/herbstScripts/panel.sh &
 . "$HOME"/.config/herbstluftwm/theme
 # Rules
 . "$HOME"/.config/herbstluftwm/winRules
-
+# Monitors
+. "$HOME"/.config/herbstluftwm/monitors
 
 # tags
 tag_names=( {1..9} )

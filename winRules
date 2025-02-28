@@ -7,6 +7,8 @@ hc foreach T tags.by-name. sprintf ATTR '%c.tiling.root.algorithm' T set_attr AT
 hc rule title~'scratchpad' floating=on floatplacement=center floating_geometry=1380x600            
 hc rule title~'notepad' floating=on floatplacement=center floating_geometry=1500x700
 hc rule title~'addvm' floating=on floatplacement=center floating_geometry=1380x600
+hc rule title~'notes' floating=on floatplacement=center floating_geometry=2000x700
+hc rule title~'news' floating=on floatplacement=center floating_geometry=1800x700
 
 hc rule focus=on # normally focus new clients
 hc rule windowtype~'_NET_WM_WINDOW_TYPE_(DIALOG|UTILITY|SPLASH)' floating=on

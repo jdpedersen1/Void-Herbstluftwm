@@ -1,5 +1,5 @@
 ## Mod key set to alt, use Mod4 to use super key
-Mod=Mod1
+Mod=Mod4
 
 ## Remove all existing keybindings
 hc keyunbind --all
@@ -14,7 +14,6 @@ hc keybind $Mod-Shift-q close
 hc keybind $Mod-Shift-Return spawn alacritty
 hc keybind $Mod-Shift-k spawn kitty
 
-
 # Scratchpads
 hc keybind $Mod-Return spawn $HOME/.local/scripts/scratch scratchpad
 hc keybind $Mod-Control-Return spawn $HOME/.local/scripts/scratch notepad
@@ -22,9 +21,9 @@ hc keybind $Mod-Control-Shift-Return spawn $HOME/.local/scripts/scratch notes
 hc keybind $Mod-Control-Shift-n spawn $HOME/.local/scripts/scratch news
 
 # Menu
-#hc keybind $Mod-Shift-d spawn dmenu_run
+hc keybind $Mod-Shift-d spawn gofer
 hc keybind $Mod-d spawn $HOME/.config/launchers/launchers/type-3/launcher.sh
-hc keybind $Mod-Shift-d spawn $HOME/.config/herbstluftwm/herbstScripts/menu menu
+#hc keybind $Mod-Shift-d spawn $HOME/.config/herbstluftwm/herbstScripts/menu menu
 hc keybind $Mod-Shift-i spawn $HOME/.config/herbstluftwm/herbstScripts/menu srcpkgs
 hc keybind $Mod-Shift-v spawn $HOME/.config/herbstluftwm/herbstScripts/menu vm
 
@@ -109,5 +108,18 @@ hc keybind $Mod-Tab         cycle_all +1
 hc keybind $Mod-Shift-Tab   cycle_all -1
 hc keybind $Mod-c cycle
 hc keybind $Mod-i jumpto urgent
+
+# scrolling
+hc keybind $Mod-z toggle_layout
+hc keybind $Mod-x set_layout scroll
+hc keybind $Mod-bracketleft scroll_move_window left
+hc keybind $Mod-bracketright scroll_move_window right
+hc keybind $Mod-Shift-bracketleft scroll_stack_window left
+hc keybind $Mod-Shift-bracketright scroll_stack_window right
+hc keybind $Mod-e scroll_unstack_window
+hc keybind $Mod-Control-Shift-Left scroll_resize_window width -5%
+hc keybind $Mod-Control-Shift-Right scroll_resize_window width +5%
+hc keybind $Mod-Control-Shift-Up scroll_resize_window height +5%
+hc keybind $Mod-Control-Shift-Down scroll_resize_window height -5%
 
 hc unlock

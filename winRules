@@ -1,8 +1,8 @@
 # rules
 hc unrule -F
 
-hc attr settings.default_frame_layout masterstack0
-hc foreach T tags.by-name. sprintf ATTR '%c.tiling.root.algorithm' T set_attr ATTR masterstack
+hc attr settings.default_frame_layout scroll
+hc foreach T tags.by-name. sprintf ATTR '%c.tiling.root.algorithm' T set_attr ATTR scroll
 
 hc rule title~'scratchpad' floating=on floatplacement=center floating_geometry=1380x600            
 hc rule title~'notepad' floating=on floatplacement=center floating_geometry=1500x700
